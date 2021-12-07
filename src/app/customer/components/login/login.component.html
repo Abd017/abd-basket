@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+      <h3> {{ "customer.login.title" | translate }} </h3>
+    <form #f1="ngForm">
+      <div class="mb-3">
+        <label for="email" class="form-label">{{ "customer.login.email" | translate }}</label>
+        <input
+          type="email"
+          [(ngModel)]="loginData.email"
+          name="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+          required
+          #pname="ngModel"
+        />
+        <div id="emailHelp" class="form-text">
+          {{ "customer.login.infoText" | translate }}
+        </div>
+        <div class="text-danger form-text" *ngIf="pname.dirty && pname.errors && pname.errors.required">
+            Email id is required, but missing.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">{{ "customer.login.pwd" | translate}}</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="loginData.password"
+          class="form-control"
+          id="password"
+          required
+          minlength="8"
+          #pass="ngModel"
+        />
+        <div class="text-danger form-text" *ngIf="pass.dirty && pass.errors && pass.errors.required">
+          Password is required, but missing.
+        </div>
+      </div>
+      <button (click)="login()" type="submit" class="btn btn-primary"  [disabled]="f1.invalid">
+        {{ "customer.login.loginBtn" | translate}}
+      </button>
+    </form>
+    <p class="align">
+      {{ "customer.login.registerTitle" | translate }}
+      <button routerLink="/customer/register" class="btn btn-link align-baseline px-0">
+        {{ "customer.login.registerBtn" | translate }}
+      </button>
+  </p>
+  </div>
+  <div class="col-2"></div>
+</div>

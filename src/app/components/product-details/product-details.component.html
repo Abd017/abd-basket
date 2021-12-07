@@ -1,0 +1,59 @@
+<div class="row pt-4" *ngIf="product">
+    <div class="col-12 col-md-6">
+        <img [src]="product.picture" alt="product.description" />
+    </div>
+    <div class="col-12 col-md-6">
+        <p class="text-decoration-underline text-muted">{{ product.brand }}</p>
+        <h3 class=""> {{ product.description }} </h3>
+        <p class="fs-6"> 
+            <span class="text-muted">
+                MRP: <del>{{ product.unit_price | currency:"INR" }}</del>
+            </span>
+            &nbsp;
+            <span class="fs-5">
+                Price: {{ product.unit_price * (100-product.discount) / 100 | currency:"INR" }}
+            </span>
+            &nbsp;
+            <span style="color: rgb(163, 2, 2);">You save: {{ product.discount }}%</span>
+        </p>
+        <app-add-to-cart-button [product]="product"></app-add-to-cart-button>
+        <p>Pack size: {{product.quantity_per_unit}}</p>
+        <!-- <table class="table table-hover">  
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td> {{ product.name }} </td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td> {{product.category}} </td>
+                </tr>
+                <tr>
+                    <td>Brand</td>
+                    <td> {{ product.brand }} </td>
+                </tr>
+                <tr>
+                    <td>Quantity per unit</td>
+                    <td> {{ product.quantity_per_unit }} </td>
+                </tr>
+                <tr>
+                    <td>Unit price</td>
+                    <td>
+                        <del>
+                            {{ product.unit_price | currency:"INR" }}
+                        </del>
+                        &nbsp;
+                        <span>
+                            {{ product.unit_price * (100-product.discount) / 100 | currency:"INR" }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Discount</td>
+                    <td> {{ product.discount }}% </td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+
+</div>

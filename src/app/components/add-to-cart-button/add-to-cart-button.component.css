@@ -1,0 +1,19 @@
+.btn{
+  border: none;
+  border-radius: 5px;
+  min-width: 60%;
+  background-color: rgb(212, 230, 249);
+  margin-bottom: 8px;
+  padding: 10px 20px;
+}
+.btn:hover{
+  background-color: rgb(168, 205, 245);
+}
+.btn-counter{
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-add-to-cart{
+  white-space: nowrap;
+}

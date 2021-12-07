@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <h3>{{ "customer.register.title" | translate }}</h3>
+    <form #f1="ngForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">{{ "customer.register.name" | translate }}</label>
+        <input
+          type="name"
+          [(ngModel)]="name"
+          name="name"
+          class="form-control"
+          id="name"
+          aria-describedby="nameHelp"
+          required
+          pattern="[a-zA-Z ]*"
+          minlength="3"
+          maxlength="20"
+          #nname="ngModel"
+        />
+        <div class="form-text text-danger" *ngIf="nname.touched && nname.errors">
+          <div *ngIf="nname.errors.required">
+            Name is required, but missing.
+          </div>
+          <div *ngIf="nname.errors.minlength">
+            Minimum {{ nname.errors.minlength.requiredLength }} letters are required
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">{{ "customer.register.email" | translate }}</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+          required
+          ngModel email="true"
+          #eId="ngModel"
+        />
+        
+        <div id="emailHelp" class="form-text">
+          {{ "customer.register.infoText" | translate }}
+          <div class="text-danger" *ngIf="eId.touched && eId.errors">
+            Enter a valid email.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">{{ "customer.register.pwd" | translate }}</label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          name="password"
+          [(ngModel)]="password"
+          class="form-control"
+          id="password"
+          required
+          minlength="8"
+          maxlength="32"
+          pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$"
+          #pass="ngModel"
+        />
+        <div>
+          <input
+            class="fonm-check-input"
+            type="checkbox"
+            [(ngModel)]="showPassword"
+            name="showPassword"
+            [checked]="showPassword"
+            id="showPasswordCheckBox"
+            />
+            <label class="form-check-label mx-2" for="showPasswordCheckbox">{{ "customer.register.showPassword" | translate }}</label>
+        </div>
+        <div class="form-text text-danger" *ngIf="pass.touched && pass.errors">
+          <div *ngIf="pass.errors.required">
+            Password is required, but missing.
+          </div>
+          <div *ngIf="pass.errors.minlength">
+            Password must contains [0-9], [a-z], [A-Z]. Minimum {{ pass.errors.minlength.requiredLength }} letters are required
+          </div>
+        </div>
+      </div>
+      <button (click)="register()" type="submit" class="btn btn-primary" [disabled]="f1.invalid">
+        {{ "customer.register.registerBtn" | translate }}
+      </button>
+    </form>
+    <div>
+      {{ "customer.register.loginTitle" | translate }}
+      <button routerLink="/customer/login" class="btn btn-link align-baseline px-0">{{ "customer.register.loginBtn" | translate }}</button>
+    </div>
+  </div>
+  <div class="col-2"></div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ngabdbasket": {
+      "hosting": {
+        "vinbasket": [
+          "ngabdbasket"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ngabdbasket"
+  }
+}

@@ -1,0 +1,24 @@
+.img{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.box{
+    cursor: pointer;
+}
+
+.btn-addToCart{
+    min-width: 130px;
+}
+
+.product-name{
+    min-width: 200px;
+}
+
+.unit-price{
+    min-width: 130px;
+}
+
+.serial-no{
+    min-width: 60px;
+}

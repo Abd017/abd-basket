@@ -1,0 +1,19 @@
+<div *ngIf="!isInCart">
+    <button (click)="addToCart()" class="btn btn-light btn-add-to-cart text-uppercase">Add to cart</button>
+</div>
+
+<div *ngIf="isInCart">
+    <button class="btn btn-counter">
+        <div class="row text-bold row-cols-3">
+            <div class="col btn-increment" (click)="decrement()">
+                <i class="fas fa-minus"></i>
+            </div>
+            <div class="col">
+                {{ quantity }}
+            </div>
+            <div class="col btn-decrement" (click)="increment()">
+                <i class="fas fa-plus"></i>
+            </div>
+        </div>
+    </button>
+</div>

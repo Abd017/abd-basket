@@ -1,0 +1,51 @@
+<div *ngIf="order">
+  <p><strong>Order ID: </strong> {{ order.id }}</p>
+  <p>
+    <strong>Order date: </strong>
+    {{ order.orderDate | date: "MMMM d, yyyy h:m a" }}
+  </p>
+  <p><strong>Order status: </strong> {{ order.orderStatus }}</p>
+  <hr>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sl no</th>
+          <th>Product name</th>
+          <th class="text-end">Unit price</th>
+          <th class="text-end">Discount</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-end">Amount</th>
+          <th class="text-end">Savings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  class="align-middle" *ngFor="let li of order.lineItems; index as slno"  
+        >
+          <td>{{ slno + 1 }}</td>
+          <!-- <td [routerLink]="['/products', 'details', li.product.id]" class="box"> -->
+          <td>
+            <img [src]="li.product.picture" [alt]="li.product.description" class="img">
+            {{ li.product.description }}
+          </td>
+          <td class="text-end">
+            <del>{{ li.product.unit_price | currency: "INR" }}</del>
+            &nbsp;
+            <span>{{ getDiscountedUnitPrice(li) | currency: "INR" }}</span>
+          </td>
+          <td class="text-end">{{ li.product.discount }}%</td>
+          <td class="text-center"> {{ li.quantity }}</td>
+          <td class="text-end">{{ getAmount(li) | currency: "INR" }}</td>
+          <td class="text-end">{{ getSavings(li) | currency: "INR" }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="text-end">
+          <td colspan="5"></td>
+          <td>{{ getOrderValue(order) | currency: "INR" }}</td>
+          <td>{{ getOrderSavings(order) | currency: "INR" }}</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  

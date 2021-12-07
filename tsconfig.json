@@ -16,10 +16,15 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"],
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "paths": {
+      "@service/*": ["src/app/service/*"],
+      "@components/*": ["src/app/components/*"],
+      "@pipes/*": ["src/app/pipes/*"],
+      "@model/*": ["src/app/model/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

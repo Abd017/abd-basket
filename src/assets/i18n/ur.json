@@ -1,0 +1,47 @@
+{
+  "header": {
+    "title": "اے بی ڈی ٹوکری",
+    "login": "لاگ ان",
+    "register": "رجسٹر",
+    "greet": "ہیلو",
+    "logout": "لاگ آؤٹ"
+  },
+  "sidebar": {
+    "browseByBrands": "برانڈز کے ذریعے براؤز کریں",
+    "browseByCategories": "زمرے کے لحاظ سے براؤز کریں",
+    "cartOptions": {
+      "title": "کارٹ آپشنز",
+      "total": "کل",
+      "savings": "بچتیں"
+    },
+    "custOptions": {
+      "title": "لاگ ان0",
+      "orderHistory": "لاگ ان1",
+      "viewOrUpdate": "لاگ ان2",
+      "changePassword": "لاگ ان3"
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "موجودہ صارفین برائے مہربانی لاگ ان کریں",
+      "email": "ای میل ایڈریس",
+      "pwd": "پاس ورڈ",
+      "loginBtn": "لاگ ان",
+      "loginText": "ہم آپ کا ای میل کبھی کسی اور کے ساتھ شیئر نہیں کریں گے۔",
+      "name": "پورا نام",
+      "registerTitle": "نئے صارفین برائے مہربانی",
+      "registerBtn": "رجسٹر"
+    },
+    "register": {
+      "title": "نئے صارفین برائے مہربانی رجسٹر کریں",
+      "name": "پورا نام",
+      "email": "ای میل پتہ",
+      "infoText": "ہم آپ کا ای میل کبھی کسی اور کے ساتھ شیئر نہیں کریں گے۔",
+      "pwd": "پاس ورڈ",
+      "registerBtn": "رجسٹر",
+      "showPassword": "پاس ورڈ دکھائیں",
+      "loginTitle": "موجودہ گاہک ، براہ کرم",
+      "loginBtn": "لاگ ان"
+    }
+  }
+}

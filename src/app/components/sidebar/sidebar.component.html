@@ -1,0 +1,129 @@
+<button class="btn btn-dark d-lg-none btn-sidebar" type="button" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasNavbar" aria-controls="offcanvasExample">
+   M <br> E <br> N <br> U <br> 
+   <i class="fas fa-arrow-circle-right fs-6"></i>
+</button>
+<nav class="navbar-expand-lg">
+    <div class="">
+        <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
+        <!-- <button class="btn btn-primary d-lg-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasExample">
+            Sidebar
+        </button> -->
+        <div class="offcanvas offcanvas-start py-1 px-3 p-lg-0 cust-offcanvas" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel" >
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu options</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div>
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item my-2">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                            {{ "sidebar.browseByBrands" | translate }}
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item border-0" [routerLink]="['/products']" [queryParams]="{ brand: null }"
+                                    queryParamsHandling="merge" (click)="activeBrand = 'all'"
+                                    [ngClass]="{ 'list-group-item-primary': activeBrand === 'all' }">
+                                    All
+                                </li>
+                                <li *ngFor="let b of brands" class="list-group-item border-0" (click)="activeBrand = b"
+                                    [ngClass]="{ 'list-group-item-primary': activeBrand === b }" [routerLink]="['/products']"
+                                    [queryParams]="{ brand: b }" queryParamsHandling="merge">
+                                    {{ b | titlecase }}
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-item my-2 border">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button fs-md-5" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                            {{ "sidebar.browseByCategories" | translate }}
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item border-0" [routerLink]="['/products']" [queryParams]="{ category: null }"
+                                    queryParamsHandling="merge" (click)="activeCategory = 'all'"
+                                    [ngClass]="{ 'list-group-item-primary': activeCategory === 'all' }">
+                                    All
+                                </li>
+                                <li class="list-group-item border-0" *ngFor="let c of categories" (click)="activeCategory = c"
+                                    [ngClass]="{ 'list-group-item-primary': activeCategory === c }" [routerLink]="['/products']"
+                                    [queryParams]="{ category: c }" queryParamsHandling="merge">
+                                    {{ c | titlecase }}
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-item my-2 border" *ngIf="customerService.isLoggedIn">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button fs-md-5" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+                            {{ "sidebar.custOptions.title" | translate }}
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body p-0">
+                            <ul class="list-group" data-bs-dismiss="offcanvas" aria-label="Close">
+                                <li class="list-group-item border-0" routerLink="/customer/order-history">
+                                    {{ "sidebar.custOptions.orderHistory" | translate }}
+                                </li>
+                                <li class="list-group-item border-0">
+                                    {{ "sidebar.custOptions.viewOrUpdate" | translate }}
+                                </li>
+                                <li class="list-group-item border-0">
+                                    {{ "sidebar.custOptions.changePassword" | translate }}
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="accordion-item my-2 border" *ngIf="lineItemQuantity">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                        <button class="accordion-button fs-md-5" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
+                            {{ "sidebar.cartOptions.title" | translate }}
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour" data-bs-dismiss="offcanvas" aria-label="Close">
+                        <div class="accordion-body p-0">
+                            <ul class="list-group">
+                                <li class="list-group-item border-0" routerLink="/view-cart">
+                                    <div class="row px-3 justify-content-between align-items-center">
+                                        <div class="col-3 px-0">
+                                            <h3 class="fas fa-shopping-cart">
+                                                <sup style="font-size: small; vertical-align: super">
+                                                    {{ lineItemQuantity }}</sup>
+                                            </h3>
+                                        </div>
+                                        <div class="col-9 px-1">
+                                            <p class="text-end d-inline">
+                                                
+                                                {{ "sidebar.cartOptions.total" | translate }} =
+                                                {{ cartValue | currency: "INR" }} <br>
+                                                {{ "sidebar.cartOptions.savings" | translate }} =
+                                                {{ cartSavings | currency: "INR" }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>

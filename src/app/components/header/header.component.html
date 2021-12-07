@@ -1,0 +1,66 @@
+<nav class="navbar sticky-top nav-bar navbar-expand-md navbar-light px-2 py-3 mb-4 shadow-sm" style="background-color: #d4e6f9;">
+    <div class="container">
+        
+        <h1 class="nav-brand my-auto" routerLink="/" style="cursor: pointer;">
+            {{ "header.title" | translate }}
+        </h1>
+        <button class="navbar-toggler border-0 btn-toggle" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <div *ngIf="customerService.isLoggedIn">
+                        <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                            <i class="fas fa-user"></i>
+                            {{ customerService.loggedInCustomerName }}
+                        </button> |
+                        <button (click)="customerService.logout()" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                            {{ "header.logout" | translate }}
+                        </button>
+                    </div>
+                    <div *ngIf="!customerService.isLoggedIn" class="align-middle">
+                        <button routerLink="/customer/login" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                            {{ "header.login" | translate }}
+                        </button> |
+                        <button routerLink="/customer/register" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                            {{ "header.register" | translate }}
+                        </button>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="btn btn-link dropdown-toggle" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Language
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <button (click)="changeLanguage('en')" type="button" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                                English
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="changeLanguage('hi')" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                                Hindi
+                            </button>
+                        </li>
+                        <li>
+                            <button (click)="changeLanguage('ur')" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                                Urdu
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="d-flex px-2">
+                <h2 class="fas fa-shopping-cart pt-2 cart-icon" routerLink="/view-cart" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <sup style="font-size: large; vertical-align: super; color: rgb(184, 3, 3);"> {{ lineItemQuantity
+                        }}</sup>
+                </h2>
+                <!-- <p class="text-center line-item-count">{{ lineItemQuantity }}</p> -->
+            </div>
+        </div>
+    </div>
+</nav>

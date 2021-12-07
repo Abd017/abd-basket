@@ -1,0 +1,44 @@
+<div *ngIf="product" class="card product-card">
+  <div class="row g-0 p-2">
+    <div class="col-6 col-lg-12">
+      <button class="btn btn-light mt-2 mb-4 text-end shadow-sm rounded" style="min-width: 100%; font-size: small; color: rgb(187, 15, 15)">
+        GET {{ product.discount }}% OFF &nbsp;
+        <i class="fas fa-certificate"></i>
+      </button>
+      <img [src]="product.picture" class="card-img-top img-fluid" [alt]="product.name"
+        [routerLink]="['/products', 'details', product.id]" />
+    </div>
+    <div class="col-6 col-lg-12">
+      <div class="card-body">
+        <h5 class="card-title" [title]="product.description">
+          <div *ngIf="product.name.length <= 15">
+            {{ product.name }}
+          </div>
+          <div *ngIf="product.name.length > 15">
+            {{ product.name | slice: 0:15 }}...
+          </div>
+        </h5>
+        <p class="card-text">
+          {{ product.brand }} | {{ product.category | titlecase }}
+        </p>
+        <p class="align-bottom" style="white-space: nowrap;">
+          <span style="font-size: x-large; color: rgb(187, 15, 15)">
+            {{
+            (product.unit_price * (100 - product.discount)) / 100
+            | currency: "INR"
+            }}
+          </span>
+          <del style="font-size: medium">
+            {{ product.unit_price | currency: "INR" }}
+          </del>
+          <span style="font-size: medium">
+            <br>({{ product.discount }}% off)
+          </span>
+        </p>
+    
+        <!-- <button class="btn btn-primary">Add to cart</button> -->
+        <app-add-to-cart-button [product]="product"></app-add-to-cart-button>
+      </div>
+    </div>
+  </div>
+</div>

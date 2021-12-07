@@ -1,0 +1,20 @@
+{
+    "header": {
+        "title": "アブドバスケット",
+        "login": "ログイン",
+        "register": "登録",
+        "greet": "こんにちは",
+        "logout": "ログアウト"
+    },
+    "sidebar":{
+        "browseByBrands": "ブランドで閲覧",
+        "browseByCategories": "カテゴリ別に閲覧",
+        "custOptions": "顧客オプション",
+        "cartOptions":{
+            "title": "カートオプション",
+            "orderHistory": "注文履歴",
+            "viewOrUpdate": "プロファイルの表示/更新",
+            "changePassword": "パスワードを変更する"
+        }
+    }
+}

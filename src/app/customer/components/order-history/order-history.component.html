@@ -1,0 +1,74 @@
+<div *ngIf="!dataLoaded">
+  <div class="col">
+    <div class="d-flex justify-content-center">
+        <strong class="fs-2">Loading...</strong>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div *ngIf="dataLoaded && orders.length===0">
+  <h3>You don't have any past order</h3>
+</div>
+<div *ngIf="orders && orders.length>0">
+  <h3>Your Order History</h3>
+
+<div class="table-responsive-md">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Sl No</th>
+        <th>Ordered on</th>
+        <th>Status</th>
+        <th class="text-end">Item Count</th>
+        <th class="text-end">You paid</th>
+        <th class="text-end">Your savings</th>
+        <th></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr
+        *ngFor="let order of orders; index as slno"
+        [ngClass]="{ 'table-primary': order === orderToDisplayDetails }"
+      >
+        <td>{{ slno + 1 }}</td>
+        <td>{{ order.orderDate | date: "MMMM d, yyyy h:m a" }}</td>
+        <td>{{ order.orderStatus }}</td>
+        <td class="text-end">{{ getOrderItemCount(order) }}</td>
+        <td class="text-end">{{ getOrderValue(order) | currency: "INR" }}</td>
+        <td class="text-end">{{ getOrderSavings(order) | currency: "INR" }}</td>
+        <td>
+          <button
+            (click)="orderToDisplayDetails = order"
+            class="btn btn-link"
+            data-bs-toggle="modal" data-bs-target="#exampleModal"
+          >
+            View Details
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+<!-- <app-order-details [order]="orderToDisplayDetails"></app-order-details> -->
+
+<div class="modal" [ngStyle]="{ display: display }" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Your Order</h4>
+        <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <app-order-details [order]="orderToDisplayDetails"></app-order-details>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

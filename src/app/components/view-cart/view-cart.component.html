@@ -1,0 +1,84 @@
+<div *ngIf="cartService.cart.length === 0">
+    <h3>Your cart is empty</h3>
+</div>
+
+<div class="table-responsive" *ngIf="cartService.cart.length">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-end">SL No</th>
+                <th class="product-name">Product Name</th>
+                <th class="text-end">Unit Price</th>
+                <th class="text-end">Discount</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-end">Amount</th>
+                <th class="text-end">Savings</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle" *ngFor="let li of cartService.cart; index as slno">
+                <td class="text-end serial-no">{{ slno + 1}}</td>
+                <td [routerLink]="['/products', 'details', li.product.id]" class="box">
+                    <img [src]="li.product.picture" [alt]="li.product.description" class="img">
+                    {{ li.product.description | slice: 0:15 }}
+                    <span *ngIf="li.product.description.length>15">
+                        ...
+                    </span>
+                </td>
+                <td class="text-end unit-price">
+                    <del>{{ li.product.unit_price | currency: "INR" }}</del>
+                    &nbsp;
+                    <span>{{ getDiscountedUnitPrice(li.product) }}</span>
+                </td>
+                <td class="text-end">{{ li.product.discount }}%</td>
+                <td class="text-center btn-addToCart">
+                    <app-add-to-cart-button [product]="li.product"></app-add-to-cart-button>
+                </td>
+                <td class="text-end">{{ getAmount(li) | currency: "INR" }}</td>
+                <td class="text-end"> {{ getSavings(li) | currency: "INR" }} </td>
+                <td>
+                    <span 
+                        (click)="cartService.removeFromCart(li.product)" 
+                        class="text-danger"
+                        style="cursor: pointer;"
+                    >
+                        <i class="far fa-trash-alt"></i>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="text-end">
+                <td colspan="5"></td>
+                <td> {{ cartValue | currency: "INR" }} </td>
+                <td> {{ cartSavings | currency: "INR" }} </td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    
+</div>
+<div class="row justify-content-between">
+    <div class="col">
+        <button
+            class="btn btn-danger"
+            [swal]="{
+                title: 'This action is irreversible',
+                text: 'Are you sure?',
+                showCancelButton: true,
+                icon: 'question',
+                timer: 5000,
+                allowEscapeKey: true,
+                confirmButtonText: 'Yes, go ahead',
+                cancelButtonText: 'No'
+            }"
+            (confirm)="confirmAndEmptyCart()"
+        >
+            Empty Cart
+        </button>
+    </div>
+    <div class="col">
+        <button (click)="placeOrder()" class="btn btn-primary">Place order</button>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{
+  "header": {
+    "title": "एबीडी बास्केट",
+    "login": "लॉगिन",
+    "register": "रजिस्टर",
+    "greet": "हैलो",
+    "logout": "लॉगआउट"
+  },
+  "sidebar": {
+    "browseByBrands": "ब्रांडों द्वारा ब्राउज़ करें",
+    "browseByCategories": "श्रेणियों द्वारा ब्राउज़ करें",
+    "cartOptions": {
+      "title": "कार्ट विकल्प",
+      "total": "कुल",
+      "savings": "बचत"
+    },
+    "custOptions": {
+      "title": "ग्राहक विकल्प",
+      "orderHistory": "आदेश इतिहास",
+      "viewOrUpdate": "प्रोफ़ाइल देखें/अपडेट करें",
+      "changePassword": "पासवर्ड बदलें"
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "मौजूदा ग्राहक कृपया लॉगिन करें",
+      "email": "ईमेल पता",
+      "pwd": "पासवर्ड",
+      "loginBtn": "लॉगिन",
+      "loginText": "हम आपका ईमेल किसी और के साथ साझा नहीं करेंगे।",
+      "name": "पूरा नाम",
+      "registerTitle": "नए ग्राहक कृपया",
+      "registerBtn": "पंजीकरण करें"
+    },
+    "register": {
+      "title": "नए ग्राहक कृपया पंजीकरण करें",
+      "name": "पूरा नाम",
+      "email": "ईमेल पता",
+      "infoText": "हम आपका ईमेल किसी और के साथ साझा नहीं करेंगे।",
+      "pwd": "पासवर्ड",
+      "registerBtn": "रजिस्टर",
+      "showPassword": "पासवर्ड दिखाएं",
+      "loginTitle": "मौजूदा ग्राहक, कृपया",
+      "loginBtn": "लॉगिन"
+    }
+  }
+}

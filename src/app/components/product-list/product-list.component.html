@@ -1,0 +1,19 @@
+<div class="row pt-3" *ngIf="!dataLoaded">
+    <div class="col">
+        <div class="d-flex justify-content-center">
+            <strong class="fs-2">Loading...</strong>
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-4" *ngIf="dataLoaded">
+    <div class="col-lg-4 col-md-6 col-12" *ngFor="let p of products">
+        <app-product-card [product]="p"></app-product-card>
+    </div>
+    <br>
+    <div class="text-center">
+        <div class="btn btn-secondary" (click)="loadMore()" *ngIf="showBtn">Show More</div>
+    </div>
+</div>

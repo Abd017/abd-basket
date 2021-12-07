@@ -1,0 +1,46 @@
+{
+    "header": {
+        "title": "ABD Basket",
+        "login": "Login",
+        "register": "Register",
+        "greet": "Hello",
+        "logout": "Logout"
+    },
+    "sidebar":{
+        "browseByBrands": "Browse by brands",
+        "browseByCategories": "Browse by categories",
+        "cartOptions": {
+            "title": "Cart Options",
+            "total": "Total",
+            "savings": "Savings"
+        },
+        "custOptions":{
+            "title": "Customer options",
+            "orderHistory": "Order History",
+            "viewOrUpdate": "View/update profile",
+            "changePassword": "Change password"
+        }
+    },
+    "customer": {
+        "login": {
+            "title": "Existing customers please login",
+            "email": "Email address",
+            "pwd": "Password",
+            "loginBtn": "Login",
+            "infoText": "We'll never share your email with anyone else.",
+            "registerTitle": "New customers, please ",
+            "registerBtn": "register"
+        },
+        "register": {
+            "title": "New customers please register",
+            "name": "Full Name",
+            "email": "Email address",
+            "infoText": "We'll never share your email with anyone else.",
+            "pwd": "Password",
+            "registerBtn": "Register",
+            "showPassword": "Show Password",
+            "loginTitle": "Existing customer, please",
+            "loginBtn": "login"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+li{
+    cursor: pointer;
+}
+
+.btn-sidebar{
+    background-color: rgb(212, 230, 249);
+    color: #000080;
+    z-index: 10;
+    position: fixed;
+    top: 120px;
+    left: 0px;
+    border: none;
+    /* box-shadow:5px 5px 5px #c7c7c7; */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.cust-offcanvas{
+    overflow:scroll;
+}
+
+.cust-offcanvas::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.cust-offcanvas {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
